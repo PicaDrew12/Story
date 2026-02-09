@@ -3,5 +3,5 @@
 int main(){
   Printer printer;
   printer.Format(31);
-  printer.print(88888);
+  printer.print("Hellow from [c");
 }
