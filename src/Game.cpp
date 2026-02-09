@@ -2,6 +2,6 @@
 #include "Printer.h"
 int main(){
   Printer printer;
-  printer.Format(31);
-  printer.print("Hellow from [c");
+  printer.Format(33);
+  printer.print("Hello from Android");
 }
