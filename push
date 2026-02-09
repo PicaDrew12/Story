@@ -4,4 +4,4 @@
 git status
 git add .
 git commit -m "New commit from Android"
-push
+git push
