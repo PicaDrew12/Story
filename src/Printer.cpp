@@ -32,6 +32,18 @@ void Printer::FormatBackground(std::string color){
   }
   Format(40+pickedColor);
 }
+
+void Printer::FormatStyle(std::string style){
+  
+  int pickedStyle =0;
+  for(const auto& pair: styleMap){
+    if(pair.first==style){
+      pickedStyle=pair.second;
+    }
+  }
+  Format(pickedStyle);
+}
+
 enum class Section{
   NONE,
   COLORS,
@@ -61,6 +73,13 @@ void Printer::InitFormater(){
       int code;
       if(iss>>name>>code){
         colorMap[name] = code;
+      }
+    }
+    if(currentSection == Section::FORMATING){
+      std::string name;
+      int code;
+      if(iss>>name>>code){
+        styleMap[name]=code;
       }
     }
     

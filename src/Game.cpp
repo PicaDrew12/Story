@@ -8,6 +8,7 @@ int main(){
   printer.print("Hello from Android");
   printer.Format("red");
   printer.FormatBackground("white");
+  printer.FormatStyle("italic");
   printer.print("890",77);
-
+  
 }
