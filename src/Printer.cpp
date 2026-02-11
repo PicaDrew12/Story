@@ -87,3 +87,15 @@ void Printer::InitFormater(){
   }
 }
 
+
+
+void Printer::TypeWriterPrint(std::string text){
+  for(char c :text ){
+    std::cout<<c<<std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+  }
+}
+
+
+
+

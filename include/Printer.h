@@ -4,7 +4,8 @@
 #include<unordered_map>
 #include<fstream>
 #include<sstream>
-
+#include<chrono>
+#include<thread>
 
 class Printer{
   public:
@@ -23,7 +24,7 @@ class Printer{
     void Format(std::string color);
     void FormatBackground(std::string color);
     void FormatStyle(std::string style);
-
+    void TypeWriterPrint(std::string text);
 
 
 };
