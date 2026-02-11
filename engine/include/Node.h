@@ -1,5 +1,6 @@
 #pragma once 
 #include<string>
+#include<../../include/Printer.h>
 
 enum class NodeType{
   Start,

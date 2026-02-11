@@ -1,7 +1,14 @@
 #include "Printer.h"
 
+Printer& printer = Printer::getInstance();
+
+
 void Printer::print(){
-  std::cout<<"\033[0m"<<std::endl;
+  std::cout<<std::endl;
+}
+
+void Printer::typeWriterPrint(){
+  std::cout<<std::endl;
 }
 
 
