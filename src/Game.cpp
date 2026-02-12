@@ -38,6 +38,7 @@ int main(){
   text1.text = "HELLO!";
   text1.nodeType = NodeType::Dialogue;
   text1.nextNode = &text2;
-
+  
   text1.Run();
+  printer.ResetFormat();
 }    

@@ -44,7 +44,7 @@ class Printer{
     void FormatBackground(std::string color);
     void FormatStyle(std::string style);
     void TypeWriterPrint(std::string text);
-
+    void ResetFormat();
     static Printer& getInstance() {
         static Printer instance;
         return instance;

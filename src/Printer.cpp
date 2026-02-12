@@ -16,6 +16,10 @@ void Printer::Format(int color){
   std::cout<<"\033["<<color<<"m";
 }
 
+void Printer::ResetFormat() {
+    std::cout << "\033[0m";
+}
+
 
 
 
