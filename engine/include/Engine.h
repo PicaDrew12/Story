@@ -3,12 +3,14 @@
 #include "DialogueNode.h"
 #include "EndNode.h"
 #include<unordered_map>
+#include<memory>
 #include<vector>
 class Engine{
   public:
-    //Node startingNode;
+    std::shared_ptr<Node> startingNode;
     //void Run(Node* node);
-      std::vector<Node> nodes;
-    
+    std::vector<std::shared_ptr<Node>> nodes;
+    Engine();
+    void Start();
     
 };

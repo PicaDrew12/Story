@@ -22,7 +22,7 @@ int main(){
   
 	InitPrint();
   //
-  //Engine engine;
+  Engine engine;
   EndNode endNode;
   DialogueNode text2;
   text2.speaker = "Kyle";
@@ -38,7 +38,9 @@ int main(){
   text1.text = "HELLO!";
   text1.nodeType = NodeType::Dialogue;
   text1.nextNode = &text2;
+  engine.startingNode = std::make_shared<DialogueNode>(text1);
+  //text1.Run();
+  //printer.ResetFormat();
   
-  text1.Run();
-  printer.ResetFormat();
+  engine.Start();
 }    
