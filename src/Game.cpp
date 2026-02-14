@@ -41,7 +41,7 @@ void TestNodes1() {
 	dialogue1->SetNext(jump1);
 	jump1->SetNext(end1);
 	engine.SetStartingNode(dialogue1);
-	std::cout << "_MSVC_LANG = " << _MSVC_LANG << std::endl;
+	//std::cout << "_MSVC_LANG = " << _MSVC_LANG << std::endl;
 
 	engine.Start();
 }
