@@ -16,31 +16,30 @@ void InitPrint() {
 	//printer.typeWriterPrint("HELLO", "  ", "\n", 4563);
 }
 
+
+
+
+void TestNodes(){
+  Engine engine;
+  auto dialogue1 = std::make_shared<DialogueNode>();
+  auto jump1 = std::make_shared<JumpNode>();
+  dialogue1->speaker = "OPA";
+  dialogue1->text = "HHH";
+  dialogue1->nextNode = jump1;
+  jump1->nextNode = dialogue1;
+  engine.startingNode = dialogue1;
+  engine.Start();
+}
+
 int main(){
 
   
   
 	InitPrint();
   //
-  Engine engine;
-  EndNode endNode;
-  DialogueNode text2;
-  text2.speaker = "Kyle";
-  text2.text = "HELLO!";
-  //text2.nextNode = text2;
-  text2.nodeType = NodeType::Dialogue;
-  text2.nextNode = &endNode;
 
-  
+  TestNodes();
 
-  DialogueNode text1;
-  text1.speaker = "BOB";
-  text1.text = "HELLO!";
-  text1.nodeType = NodeType::Dialogue;
-  text1.nextNode = &text2;
-  engine.startingNode = std::make_shared<DialogueNode>(text1);
-  //text1.Run();
-  //printer.ResetFormat();
-  
-  engine.Start();
+
+
 }    

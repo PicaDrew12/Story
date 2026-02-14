@@ -7,3 +7,7 @@ void DialogueNode::Run() {
         nextNode->Run();
     }
 }
+
+DialogueNode::DialogueNode(){
+  nodeType = NodeType::Dialogue;
+}

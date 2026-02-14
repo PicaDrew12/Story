@@ -2,6 +2,7 @@
 #include "Node.h"
 #include "DialogueNode.h"
 #include "EndNode.h"
+#include "JumpNode.h"
 #include<unordered_map>
 #include<memory>
 #include<vector>

@@ -1,7 +1,7 @@
 #pragma once 
 #include<string>
 #include<../../include/Printer.h>
-
+#include<memory>
 enum class NodeType{
   Start,
   Dialogue,
@@ -12,7 +12,7 @@ enum class NodeType{
 class Node{
   public:
     std::string id;
-    Node* nextNode=nullptr;
+    std::shared_ptr<Node> nextNode=nullptr;
     NodeType nodeType;
     virtual void Run()=0;
     
