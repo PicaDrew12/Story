@@ -7,5 +7,7 @@ class DialogueNode:public Node{
     std::string text;
     DialogueNode();
     void Run() override;
+    void Set(std::string speaker, std::string text);
     
 };
+

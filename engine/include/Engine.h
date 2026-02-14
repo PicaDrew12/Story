@@ -13,5 +13,5 @@ class Engine{
     std::vector<std::shared_ptr<Node>> nodes;
     Engine();
     void Start();
-    
+    void SetStartingNode(const std::shared_ptr<Node>& node);
 };

@@ -11,3 +11,8 @@ void DialogueNode::Run() {
 DialogueNode::DialogueNode(){
   nodeType = NodeType::Dialogue;
 }
+
+void DialogueNode::Set(std::string speaker, std::string text) {
+    this->speaker = speaker;
+    this->text = text;
+}

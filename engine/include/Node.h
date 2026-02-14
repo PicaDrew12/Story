@@ -15,6 +15,7 @@ class Node{
     std::shared_ptr<Node> nextNode=nullptr;
     NodeType nodeType;
     virtual void Run()=0;
+    void SetNext(const std::shared_ptr<Node>& node);
     
 };
 
