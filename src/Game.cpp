@@ -20,6 +20,7 @@ void InitPrint() {
 
 
 void TestNodes(){
+
   Engine engine;
   auto end1 = std::make_shared<EndNode>();
   auto dialogue1 = std::make_shared<DialogueNode>();
@@ -36,25 +37,37 @@ void TestNodes1() {
 	Engine engine;
 	auto end1 = std::make_shared<EndNode>();
 	auto dialogue1 = std::make_shared<DialogueNode>();
+	auto dialogue2 = std::make_shared<DialogueNode>();
 	auto jump1 = std::make_shared<JumpNode>();
 	dialogue1->Set("Andrei", "Salut");
+	dialogue2->Set("Second", "Wow");
 	dialogue1->SetNext(jump1);
+	dialogue2->SetNext(end1);
 	jump1->SetNext(end1);
-	engine.SetStartingNode(dialogue1);
+	auto choice1 = std::make_shared<ChoiceNode>();
+	jump1->SetNext(choice1);
+	choice1->choices = { {"Andrei",dialogue1},{"Second",dialogue2} };
+	choice1->question = "Andrei or Second?";
+	engine.SetStartingNode(choice1);
 	//std::cout << "_MSVC_LANG = " << _MSVC_LANG << std::endl;
 
 	engine.Start();
 }
 
+void File() {
+	Engine engine;
+	engine.OpenProject("C:/Code/Story/Story/TestGame");
+}
 
 int main(){
-
+	printer.InitFormater();
   
   
-	InitPrint();
+	//InitPrint();
   //
 
-  TestNodes1();
+  //TestNodes1();
+	File();
 
 
 

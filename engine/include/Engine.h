@@ -3,15 +3,43 @@
 #include "DialogueNode.h"
 #include "EndNode.h"
 #include "JumpNode.h"
+#include "ChoiceNode.h"
 #include<unordered_map>
 #include<memory>
 #include<vector>
-class Engine{
+#include<filesystem>
+#include "../../filesystem/include/FileExplorer.h"
+#include<fstream>
+#include<sstream>
+
+namespace fs = std::filesystem;
+
+struct GameMetadata {
+    std::string  projectName;
+    std::string  projectAuthor;
+    float projectVersion;
+
+
+};
+
+struct Character {
+    std::string name;
+    std::string colorAccent;
+};
+
+ class Engine {
   public:
+
+    fs::path gameDirectory;
+    GameMetadata gameMetadata;
+    std::vector<Character> characters;
+
     std::shared_ptr<Node> startingNode;
-    //void Run(Node* node);
     std::vector<std::shared_ptr<Node>> nodes;
     Engine();
     void Start();
     void SetStartingNode(const std::shared_ptr<Node>& node);
+    void OpenProject(fs::path pathToProject);
+    void LoadMetadata();
+
 };

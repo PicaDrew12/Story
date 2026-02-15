@@ -7,8 +7,15 @@ void Printer::print(){
   std::cout<<std::endl;
 }
 
+void Printer::printN(){
+  //std::cout<<std::endl;
+}
+
 void Printer::typeWriterPrint(){
   std::cout<<std::endl;
+}
+void Printer::typeWriterPrintN(){
+  
 }
 
 
@@ -110,3 +117,14 @@ void Printer::TypeWriterPrint(std::string text){
 
 
 
+void Printer::SetRandomColor() {
+    std::vector<std::string> v;
+    for (auto key : colorMap) {
+        if (key.first != "black" && key.first!="white") {
+            v.push_back(key.first);
+        }
+    }
+    int random = GetRandomInt(0, v.size() - 1);
+   
+    Format(v[random]);
+}

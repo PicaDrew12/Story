@@ -5,13 +5,16 @@
 #include<fstream>
 #include<sstream>
 #include<chrono>
+#include "Random.h"
 #include<thread>
 
 class Printer{
   public:
     int printSpeed;
     void print();
+    void printN();
     void typeWriterPrint();
+    void typeWriterPrintN();
     template <typename T>
     std::string toString(const T& value) {
         std::stringstream ss;
@@ -25,6 +28,12 @@ class Printer{
       print(rest...);
     }
     template<typename T, typename... Args>
+    void printN(const T first,const Args&... rest){
+      
+      std::cout<<first;
+      printN(rest...);
+    }
+    template<typename T, typename... Args>
     void typeWriterPrint(const T first, const Args&... rest) {
         std::string newString = toString(first);
         //std::cout << first
@@ -33,6 +42,16 @@ class Printer{
             std::this_thread::sleep_for(std::chrono::milliseconds(printSpeed));
         }
         typeWriterPrint(rest...);
+    }
+    template<typename T, typename... Args>
+    void typeWriterPrintN(const T first, const Args&... rest) {
+        std::string newString = toString(first);
+        //std::cout << first
+        for (char c : newString) {
+            std::cout << c << std::flush;
+            std::this_thread::sleep_for(std::chrono::milliseconds(printSpeed));
+        }
+        typeWriterPrintN(rest...);
     }
   
     std::unordered_map<std::string, int> colorMap; 
@@ -45,6 +64,7 @@ class Printer{
     void FormatStyle(std::string style);
     void TypeWriterPrint(std::string text);
     void ResetFormat();
+    void SetRandomColor();
     static Printer& getInstance() {
         static Printer instance;
         return instance;
