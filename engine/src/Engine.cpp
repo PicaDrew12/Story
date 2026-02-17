@@ -38,6 +38,11 @@ void Engine::LoadMetadata() {
 	printer.print("Found project metadata:", gameMetadata.projectAuthor, " ", gameMetadata.projectName, " ", "", gameMetadata.projectVersion);
 }
 
+
+void Engine::LoadCharacterData() {
+
+}
+
 void Engine::OpenProject(fs::path pathToProject) {
 	gameDirectory = pathToProject;
 	LoadMetadata();

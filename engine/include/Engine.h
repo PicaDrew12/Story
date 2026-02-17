@@ -32,7 +32,7 @@ struct Character {
 
     fs::path gameDirectory;
     GameMetadata gameMetadata;
-    std::vector<Character> characters;
+    std::unordered_map<std::string, Character> characters;
 
     std::shared_ptr<Node> startingNode;
     std::vector<std::shared_ptr<Node>> nodes;
@@ -40,6 +40,8 @@ struct Character {
     void Start();
     void SetStartingNode(const std::shared_ptr<Node>& node);
     void OpenProject(fs::path pathToProject);
+    void LoadCharacterData();
     void LoadMetadata();
+
 
 };
