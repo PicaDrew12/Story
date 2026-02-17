@@ -56,7 +56,7 @@ void TestNodes1() {
 
 void File() {
 	Engine engine;
-	engine.OpenProject("C:/Code/Story/Story/TestGame");
+	engine.OpenProject("../TestGame");
 }
 
 int main(){

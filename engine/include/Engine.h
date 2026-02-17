@@ -27,9 +27,15 @@ struct Character {
     std::string colorAccent;
 };
 
+struct Label{
+  std::string name;
+  std::vector<std::shared_ptr<Node>> labelNodes;
+};
+
+
  class Engine {
   public:
-
+    std::unordered_map<std::string labelName, Label> labels;
     fs::path gameDirectory;
     GameMetadata gameMetadata;
     std::unordered_map<std::string, Character> characters;
@@ -42,6 +48,9 @@ struct Character {
     void OpenProject(fs::path pathToProject);
     void LoadCharacterData();
     void LoadMetadata();
+    void ReadChrFile(fs::path path);
+    void LoadSceneData();
+    void ReadSceneFile(fs::path path);
 
 
 };
