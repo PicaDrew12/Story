@@ -35,7 +35,7 @@ struct Label{
 
  class Engine {
   public:
-    std::unordered_map<std::string labelName, Label> labels;
+    std::unordered_map<std::string, Label> labels;
     fs::path gameDirectory;
     GameMetadata gameMetadata;
     std::unordered_map<std::string, Character> characters;

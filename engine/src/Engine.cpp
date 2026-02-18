@@ -73,6 +73,11 @@ void Engine::LoadCharacterData() {
   }
 }
 
+void Engine::LoadSceneData() {
+
+}
+
+
 void Engine::OpenProject(fs::path pathToProject) {
 	gameDirectory = pathToProject;
 	LoadMetadata();

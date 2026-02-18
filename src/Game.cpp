@@ -54,10 +54,41 @@ void TestNodes1() {
 	engine.Start();
 }
 
+enum class OS { Windows, Linux, MacOS, Unknown };
+
+constexpr OS DetectOS() {
+#if defined(_WIN32)
+	return OS::Windows;   // _WIN32 is defined for both 32- and 64-bit Windows
+#elif defined(__APPLE__)
+	return OS::MacOS;
+#elif defined(__linux__)
+	return OS::Linux;
+#else
+	return OS::Unknown;
+#endif
+}
+
+inline std::string OSName(OS os) {
+	switch (os) {
+	case OS::Windows: return "Windows";
+	case OS::Linux:   return "Linux";
+	case OS::MacOS:   return "macOS";
+	default:          return "Unknown";
+	}
+}
+
 void File() {
 	Engine engine;
-	engine.OpenProject("../TestGame");
+	if (OSName(DetectOS()) == "Linux") {
+		engine.OpenProject("../TestGame");
+	}if (OSName(DetectOS()) == "Windows") {
+		engine.OpenProject("C:/Code/Story/Story/TestGame");
+	}
+	
 }
+
+
+
 
 int main(){
 	printer.InitFormater();
