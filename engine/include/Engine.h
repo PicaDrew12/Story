@@ -29,9 +29,16 @@ struct Character {
 
 struct Label{
   std::string name;
-  std::vector<std::shared_ptr<Node>> labelNodes;
+  std::shared_ptr<Node> startingNode;  
+  
+  
+  //std::vector<std::shared_ptr<Node>> labelNodes;
 };
 
+struct Scene{
+  std::string name;
+  std::vector<Label> sceneLabels;
+};
 
  class Engine {
   public:

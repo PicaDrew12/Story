@@ -73,7 +73,19 @@ void Engine::LoadCharacterData() {
   }
 }
 
+void Engine::ReadSceneFile(fs::path path){
+   
+}
+
 void Engine::LoadSceneData() {
+  for(const auto& entry: fs::recursive_directory_iterator(gameDirectory/"scenes")){
+    if(entry.path().extension().string()==".scene"){
+      ReadChrFile(entry.path());
+    }
+  }
+  for( auto& cha : characters){
+    printer.print(cha.second.name," ", cha.second.colorAccent,"\n");
+  }
 
 }
 
@@ -82,4 +94,5 @@ void Engine::OpenProject(fs::path pathToProject) {
 	gameDirectory = pathToProject;
 	LoadMetadata();
   LoadCharacterData();
+  LoadSceneData();
 }
